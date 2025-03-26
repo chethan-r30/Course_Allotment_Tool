@@ -3,18 +3,18 @@ import axios from "axios";
 import "./UploadPage.css";
 
 const UploadPage = () => {
-  const [schemaFile, setSchemaFile] = useState(null);
+  const [schemeFile, setSchemeFile] = useState(null);
   const [facultyFile, setFacultyFile] = useState(null);
   const [message, setMessage] = useState("");
 
   const handleUpload = async () => {
-    if (!schemaFile || !facultyFile) {
+    if (!schemeFile || !facultyFile) {
       setMessage("Please select both files.");
       return;
     }
 
     const formData = new FormData();
-    formData.append("schema", schemaFile);
+    formData.append("scheme", schemeFile);
     formData.append("preferences", facultyFile);
 
     try {
@@ -43,11 +43,11 @@ const UploadPage = () => {
       <div className="upload-box">
         <h2 className="upload-title">Upload Excel Files</h2>
 
-        <label className="upload-label">Upload Schema File:</label>
+        <label className="upload-label">Upload Scheme File:</label>
         <input
           type="file"
           className="upload-input"
-          onChange={(e) => setSchemaFile(e.target.files[0])}
+          onChange={(e) => setSchemeFile(e.target.files[0])}
         />
 
         <label className="upload-label">Upload Faculty Preferences File:</label>
